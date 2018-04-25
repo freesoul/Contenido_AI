@@ -9,3 +9,6 @@ Podréis comprobar una eficacia entorno al 75-80% del clasificador logístico bi
 Hay algunas características que si las añadís empeorarán el resultado. ¿Por qué? Porque al ser un clasificador lineal, no puede lidiar bien con el ruido. Si se tratara de una red neuronal con al menos dos capas y una función de activación no lineal, sí que lidiaría bien con él y no habría efecto.
 
 Hasta la próxima
+
+
+Dataset: https://www.kaggle.com/vikrant4/bdims/data
