@@ -4,9 +4,9 @@ Un curso de aprendizaje automático supervisado basado en ejemplos mínimos con 
 # Qué hacer
 
 ## Qué necesito antes de nada
-0. --Un cerebro-- y ganas de aprender algo útil
+0. ~~Un cerebro~~ y ganas de aprender algo útil
 1. Un ordenador
-2. Python
+2. Python(3)
 3. Numpy, Sklearn
 4. Tensorflow y Keras (a partir del ejemplo 3).
 
