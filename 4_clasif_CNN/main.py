@@ -78,10 +78,10 @@ data_y_test = data_y_test[perm]
 
 
 #######################################
-# Redimensionamos los datos
+# Reconfiguramos los datos
 #######################################
-data_x_train = data_x_train.reshape(-1,32,32,3)
-data_x_test = data_x_test.reshape(-1,32,32,3)
+data_x_train = data_x_train.reshape(-1,3,32,32).transpose(0,2,3,1)
+data_x_test = data_x_test.reshape(-1,3,32,32).transpose(0,2,3,1)
 
 
 #######################################
@@ -159,7 +159,7 @@ optimizador = keras.optimizers.rmsprop(lr=0.0001, decay=1e-6)
 
 #Compilamos y entrenamos el modelo
 model.compile(loss='categorical_crossentropy',
-              optimizer=opt,
+              optimizer=optimizador,
               metrics=['accuracy'])
 
 model.fit(data_x_train, data_y_train, verbose=True, epochs=20, batch_size=100)
@@ -174,7 +174,7 @@ model.fit(data_x_train, data_y_train, verbose=True, epochs=20, batch_size=100)
 
 if not os.path.isdir("generated"):
     os.makedirs("generated")
-model_path = os.path.join("generated", "modelo2")
+model_path = os.path.join("generated", "modelo")
 model.save(model_path)
 print('Saved trained model at %s ' % model_path)
 
