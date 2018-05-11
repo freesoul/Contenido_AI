@@ -1,5 +1,5 @@
 
-import os
+import os, sys
 from random import randint
 
 import numpy as np
@@ -12,9 +12,8 @@ from keras.layers import Conv2D, MaxPooling2D
 
 import matplotlib.pyplot as plt
 
-
-USE_IMAGE = None
 CATEGORIAS = ["ARBOL", "GENTE", "VEHICULO"]
+use_image = sys.argv[1] if len(sys.argv)>1 else False
 
 ################################
 # Cargamos la imagen a predecir
@@ -26,10 +25,13 @@ def unpickle(file):
         dict = pickle.load(fo, encoding='bytes')
     return dict
 
-if USE_IMAGE:
-    #TODO
-
-    pass
+if use_image:
+    print("Prediciendo imagen {0}".format(use_image))
+    filepath = "imagenes/{0}".format(use_image)
+    import cv2
+    img = cv2.imread(filepath)
+    img = cv2.resize(img, (32,32))
+    img = cv2.cvtColor(img, cv2.COLOR_BGR2RGB)
 else:
     test = unpickle('data/test')
     data_x_test = test[b'data']
